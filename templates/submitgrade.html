@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html class="scripts-not-loaded" lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Submit Grades To SSOL</title>
+  <!--[if lte IE 9]> <meta http-equiv=refresh content="0; URL=/ie-9-is-not-supported.html" /> <![endif]-->
+  <link href="https://du11hjcvx0uqb.cloudfront.net/dist/images/favicon-e10d657a73.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+  <link href="https://du11hjcvx0uqb.cloudfront.net/dist/images/apple-touch-icon-585e5d997d.png" rel="apple-touch-icon" />
+  
+  <link href="https://du11hjcvx0uqb.cloudfront.net/dist/brandable_css/2ae17bdc387db99b2a51ab5834712746/new_styles_normal_contrast/bundles/common-730240248a.css" media="all" rel="stylesheet" />
+  <meta content="app-id=480883488" name="apple-itunes-app" />
+<meta content="app-id=com.instructure.candroid" name="google-play-app" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0096db">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="author" content="">  
+      <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/1-col-portfolio.css" rel="stylesheet">
+  
+  <script>
+    // listen for any clicks on links that have href="#" and queue them to be fired on dom ready.
+      function _earlyClick(e){
+        var cur = e.target || e.srcElement;
+        while ( cur && cur.ownerDocument ) {
+          if ( cur.getAttribute('href') == '#' ) {
+            e.preventDefault();
+            _earlyClick.clicks = _earlyClick.clicks || [];
+            _earlyClick.clicks.push(cur);
+            break;
+          }
+          cur = cur.parentNode;
+        }
+      }
+      document.addEventListener('click', _earlyClick);
+  </script>
+</head>
+
+<body class="with-left-side course-menu-expanded with-right-side with-embedded-chat with-fixed-bottom submit_grades_to_ssol context-course_10415">
+<noscript>
+  <div role="alert" class="ic-flash-static ic-flash-error">
+    <div class="ic-flash__icon" aria-hidden="true">
+      <i class="icon-warning"></i>
+    </div>
+    <h1>You need to have JavaScript enabled in order to access this site.</h1>
+  </div>
+</noscript>
+
+
+<ul role="alert" aria-live="assertive" id="flash_message_holder"></ul>
+<div role="alert" aria-live="assertive" aria-relevant="additions" id="flash_screenreader_holder" class="screenreader-only"></div>
+
+<div id="application" class="ic-app">
+
+      <header id="header" class="ic-app-header no-print ">
+    <div class="ic-app-header__layout">
+      <div class="ic-app-header__primary">
+      <a href="#content" id="skip_navigation_link">Skip To Content</a>
+        <div role="region" class="ic-app-header__main-navigation" aria-label="Main Navigation">
+          <div class="ic-app-header__logomark-container">
+            <a href="https://columbiasce.test.instructure.com/" class="ic-app-header__logomark">
+              <span class="screenreader-only">Dashboard</span>
+            </a>
+          </div>
+          <ul id="menu" class="ic-app-header__menu-list">
+              <li class="menu-item ic-app-header__menu-list-item ">
+                <a id="global_nav_profile_link" href="/profile" class="ic-app-header__menu-list-link">
+                  <div class="menu-item-icon-container" aria-hidden="true">
+                    <div class="ic-avatar ">
+                      <img src="https://secure.gravatar.com/avatar/bc84003a419e26be50dd1d3ef809ff3d?s=50&amp;d=https%3A%2F%2Fcolumbiasce.test.instructure.com%2Fimages%2Fmessages%2Favatar-50.png" alt="Yibei Huang" />
+                    </div>
+                  </div>
+                  <div class="menu-item__text">
+                    Account
+                  </div>
+                </a>
+              </li>
+            <li class="ic-app-header__menu-list-item ">
+              <a id="global_nav_dashboard_link" href="https://columbiasce.test.instructure.com/" class="ic-app-header__menu-list-link">
+                <div class="menu-item-icon-container" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="ic-icon-svg ic-icon-svg--dashboard" version="1.1" x="0" y="0" viewBox="0 0 280 200" enable-background="new 0 0 280 200" xml:space="preserve"><path d="M231.6 94.2c-2.5-4.9-8.5-6.9-13.4-4.5l-57.3 28.6c-5.4-5.2-12.7-8.4-20.8-8.4 -16.6 0-30 13.5-30 30 0 16.6 13.5 30 30 30 16.6 0 30-13.5 30-30 0-1.3-0.1-2.5-0.2-3.8l57.3-28.6C232 105.2 234 99.2 231.6 94.2zM140 150c-5.5 0-10-4.5-10-10s4.5-10 10-10c5.5 0 10 4.5 10 10S145.6 150 140 150zM70 150H50c-5.5 0-10-4.5-10-10s4.5-10 10-10h20c5.5 0 10 4.5 10 10S75.5 150 70 150zM140 80c-5.5 0-10-4.5-10-10V50c0-5.5 4.5-10 10-10 5.5 0 10 4.5 10 10v20C150 75.5 145.5 80 140 80zM105 89.6c-3.5 0-6.8-1.8-8.7-5l-10-17.3c-2.8-4.8-1.1-10.9 3.7-13.7 4.8-2.8 10.9-1.1 13.7 3.7l10 17.3c2.8 4.8 1.1 10.9-3.7 13.7C108.4 89.1 106.7 89.6 105 89.6zM79.4 115.4c-1.7 0-3.4-0.4-5-1.3l-17.3-10c-4.8-2.8-6.4-8.9-3.7-13.7 2.8-4.8 8.9-6.4 13.7-3.7l17.3 10c4.8 2.8 6.4 8.9 3.7 13.7C86.2 113.6 82.8 115.4 79.4 115.4zM173.6 89.6c-1.7 0-3.4-0.4-5-1.3 -4.8-2.8-6.4-8.9-3.7-13.7l10-17.3c2.8-4.8 8.9-6.4 13.7-3.7 4.8 2.8 6.4 8.9 3.7 13.7l-10 17.3C180.4 87.8 177.1 89.6 173.6 89.6zM140 0C62.8 0 0 63 0 140.5V190c0 5.5 4.5 10 10 10h260c5.5 0 10-4.5 10-10v-49.5C280 63 217.2 0 140 0zM260 180H20v-39.5C20 74.1 73.8 20 140 20c66.2 0 120 54.1 120 120.5V180zM230 150h-20c-5.5 0-10-4.5-10-10s4.5-10 10-10h20c5.5 0 10 4.5 10 10S235.5 150 230 150z"/></svg>
+                </div>
+                <div class="menu-item__text">Dashboard</div>
+              </a>
+            </li>
+            <li class="menu-item ic-app-header__menu-list-item ic-app-header__menu-list-item--active">
+              <a id="global_nav_courses_link" href="/courses" class="ic-app-header__menu-list-link">
+                <div class="menu-item-icon-container" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="ic-icon-svg ic-icon-svg--courses" version="1.1" x="0" y="0" viewBox="0 0 280 259" enable-background="new 0 0 280 259" xml:space="preserve"><path d="M226.2 259H32.3c-5.9 0-10.8-4.8-10.8-10.8v-43.5H10.8C4.8 204.8 0 199.9 0 194c0-6 4.8-10.8 10.8-10.8h10.8v-21.6H10.8c-5.9 0-10.8-4.8-10.8-10.8s4.8-10.8 10.8-10.8h10.8v-21.6H10.8c-5.9 0-10.8-4.8-10.8-10.8 0-6 4.8-10.8 10.8-10.8h10.8V75.4H10.8C4.8 75.4 0 70.6 0 64.7s4.8-10.8 10.8-10.8h10.8V10.8c0-6 4.8-10.8 10.8-10.8h193.9c5.9 0 10.8 4.8 10.8 10.8v21.6h32.3c5.9 0 10.8 4.8 10.8 10.8v172.4c0 6-4.8 10.8-10.8 10.8H237v21.9C237 254.2 232.2 259 226.2 259zM43.1 237.4h172.4V21.6H43.1v32.3h10.7c5.9 0 10.8 4.8 10.8 10.8s-4.8 10.8-10.8 10.8H43.1V97h10.7c5.9 0 10.8 4.8 10.8 10.8 0 6-4.8 10.8-10.8 10.8H43.1v21.6h10.7c5.9 0 10.8 4.8 10.8 10.8s-4.8 10.8-10.8 10.8H43.1v21.6h10.7c5.9 0 10.8 4.8 10.8 10.8 0 6-4.8 10.8-10.8 10.8H43.1V237.4zM237 204.8h21.5v-21.6H237V204.8zM237 161.7h21.5v-21.6H237V161.7zM237 118.5h21.5V97H237V118.5zM237 75.4h21.5V53.9H237V75.4zM172.2 129.3H96.9c-5.9 0-10.8-4.8-10.8-10.8V64.7c0-6 4.8-10.8 10.8-10.8h75.3c5.9 0 10.8 4.8 10.8 10.8v53.9C183 124.5 178.2 129.3 172.2 129.3zM107.7 107.8h53.8V75.4h-53.8V107.8z"/></svg>
+                </div>
+                <div class="menu-item__text">
+                  Courses
+                </div>
+              </a>
+            </li>
+            <li class="menu-item ic-app-header__menu-list-item ">
+              <a id="global_nav_calendar_link" href="/calendar" class="ic-app-header__menu-list-link">
+                <div class="menu-item-icon-container" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="ic-icon-svg ic-icon-svg--calendar" version="1.1" x="0" y="0" viewBox="0 0 280 280" enable-background="new 0 0 280 280" xml:space="preserve"><path d="M268.3 280H11.7C5.2 280 0 274.8 0 268.3V35c0-6.4 5.2-11.7 11.7-11.7h35V11.7C46.7 5.2 51.9 0 58.3 0h35C99.8 0 105 5.2 105 11.7v11.7h70V11.7C175 5.2 180.2 0 186.7 0h35c6.4 0 11.7 5.2 11.7 11.7v11.7h35c6.4 0 11.7 5.2 11.7 11.7v233.3C280 274.8 274.8 280 268.3 280zM23.3 256.7h233.3v-210h-23.3v11.7c0 6.4-5.2 11.7-11.7 11.7h-35c-6.4 0-11.7-5.2-11.7-11.7V46.7h-70v11.7c0 6.4-5.2 11.7-11.7 11.7h-35c-6.4 0-11.7-5.2-11.7-11.7V46.7H23.3V256.7zM198.3 46.7H210V23.3h-11.7V46.7zM70 46.7h11.7V23.3H70V46.7zM198.3 245c-6.4 0-11.7-5.2-11.7-11.7v-11.7h-35v11.7c0 6.4-5.2 11.7-11.7 11.7 -6.4 0-11.7-5.2-11.7-11.7v-11.7h-35v11.7c0 6.4-5.2 11.7-11.7 11.7S70 239.8 70 233.3v-11.7H46.7c-6.4 0-11.7-5.2-11.7-11.7s5.2-11.7 11.7-11.7H70V175H46.7c-6.4 0-11.7-5.2-11.7-11.7 0-6.4 5.2-11.7 11.7-11.7H70v-23.3H46.7c-6.4 0-11.7-5.2-11.7-11.7S40.2 105 46.7 105H70V93.3c0-6.4 5.2-11.7 11.7-11.7s11.7 5.2 11.7 11.7V105h35V93.3c0-6.4 5.2-11.7 11.7-11.7 6.4 0 11.7 5.2 11.7 11.7V105h35V93.3c0-6.4 5.2-11.7 11.7-11.7 6.4 0 11.7 5.2 11.7 11.7V105h23.3c6.4 0 11.7 5.2 11.7 11.7s-5.2 11.7-11.7 11.7H210v23.3h23.3c6.4 0 11.7 5.2 11.7 11.7 0 6.4-5.2 11.7-11.7 11.7H210v23.3h23.3c6.4 0 11.7 5.2 11.7 11.7s-5.2 11.7-11.7 11.7H210v11.7C210 239.8 204.8 245 198.3 245zM151.7 198.3h35V175h-35V198.3zM93.3 198.3h35V175h-35V198.3zM151.7 151.7h35v-23.3h-35V151.7zM93.3 151.7h35v-23.3h-35V151.7z"/></svg>
+                </div>
+                <div class="menu-item__text">
+                  Calendar
+                </div>
+              </a>
+            </li>
+            <li class="menu-item ic-app-header__menu-list-item ">
+              <a id="global_nav_conversations_link" href="/conversations" class="ic-app-header__menu-list-link">
+                <div class="menu-item-icon-container" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="ic-icon-svg ic-icon-svg--inbox" version="1.1" x="0" y="0" viewBox="0 0 280 280" enable-background="new 0 0 280 280" xml:space="preserve"><path d="M93.3 105c0-6.4 5.2-11.7 11.7-11.7h70c6.4 0 11.7 5.2 11.7 11.7s-5.2 11.7-11.7 11.7h-70C98.6 116.7 93.3 111.4 93.3 105zM105 70h23.3c6.4 0 11.7-5.2 11.7-11.7s-5.2-11.7-11.7-11.7H105c-6.4 0-11.7 5.2-11.7 11.7S98.6 70 105 70zM280 198.3v70c0 6.4-5.2 11.7-11.7 11.7H11.7C5.2 280 0 274.8 0 268.3v-69.8c0-1.1 0.1-2.2 0.4-3.3 0.3-1.1 0.8-2.1 1.3-3L36.7 134c2.1-3.5 5.9-5.7 10-5.7h11.7V11.7C58.3 5.2 63.6 0 70 0h140c6.4 0 11.7 5.2 11.7 11.7v116.7h11.7c4.1 0 7.9 2.1 10 5.7l35 58.3c0.1 0.2 0.1 0.5 0.3 0.7 0.4 0.7 0.6 1.4 0.8 2.2 0.2 0.8 0.4 1.5 0.5 2.3C279.9 197.8 280 198.1 280 198.3zM32.3 186.7h67.9c6.4 0 11.7 5.2 11.7 11.7V210c0 7.8 3.5 7.8 6 7.8h48.7c5.7 0 10.5-3.6 10.5-7.8v-11.7c0-6.4 5.2-11.7 11.7-11.7h59l-21-35h-5.1v11.7c0 6.4-5.2 11.7-11.7 11.7s-11.7-5.2-11.7-11.7v-140H81.7v140c0 6.4-5.2 11.7-11.7 11.7s-11.7-5.2-11.7-11.7v-11.7h-5.1L32.3 186.7zM256.7 210h-56.3c0 17.2-15.2 31.1-33.8 31.1h-48.7c-17.6 0-29.4-12.5-29.4-31.1H23.3v46.7h233.3V210zM175 163.3c6.4 0 11.7-5.2 11.7-11.7 0-6.4-5.2-11.7-11.7-11.7h-70c-6.4 0-11.7 5.2-11.7 11.7 0 6.4 5.2 11.7 11.7 11.7H175z"/></svg>
+                  <span class="menu-item__badge" style="display: none">0</span>
+                </div>
+                <div class="menu-item__text">
+                  Inbox
+                </div>
+              </a>
+            </li>
+              
+          </ul>
+        </div>
+        <div role="region" aria-label="Secondary Navigation" class="ic-app-header__secondary-navigation">
+          <ul class="ic-app-header__menu-list">
+            <li class="ic-app-header__menu-list-item">
+              <a class="support_url help_dialog_trigger ic-app-header__menu-list-link" data-track-category="help system" data-track-label="help button" href="http://help.instructure.com/">
+                <div class="menu-item-icon-container" role="presentation">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="ic-icon-svg menu-item__icon svg-icon-help" version="1.1" x="0" y="0" viewBox="0 0 200 200" enable-background="new 0 0 200 200" xml:space="preserve" fill="currentColor"><path d="M100 200C44.9 200 0 155.1 0 100 0 44.9 44.9 0 100 0s100 44.9 100 100C200 155.1 155.1 200 100 200zM100 20c-44.1 0-80 35.9-80 80s35.9 80 80 80 80-35.9 80-80S144.1 20 100 20z"/><path d="M110 130H90v-30h10c11 0 20-9 20-20 0-11-9-20-20-20s-20 9-20 20H60c0-22.1 17.9-40 40-40s40 17.9 40 40c0 18.6-12.8 34.3-30 38.7V130z"/><circle cx="100" cy="150" r="12.5"/></svg>
+
+                </div>
+                <div class="menu-item__text">
+                  Help
+                </div>
+</a>            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="global_nav_tray_container"></div>
+  </header>
+
+
+  <div id="instructure_ajax_error_box">
+    <div style="text-align: right; background-color: #fff;"><a href="#" class="close_instructure_ajax_error_box_link">Close</a></div>
+    <iframe id="instructure_ajax_error_result" src="about:blank" style="border: 0;" title="Error"></iframe>
+  </div>
+
+  
+
+  <div id="wrapper-container" class="ic-app-container">
+    <div id="wrapper" class="ic-app-main-layout-vertical">
+        <div class="ic-app-nav-toggle-and-crumbs no-print">
+            <button type="button" aria-hidden="true" id="courseMenuToggle" class="Button Button--link Button--small ic-app-course-nav-toggle" title="Show and hide courses menu"><i class="icon-hamburger"></i></button>
+            <div class="ic-app-crumbs">
+          <nav aria-label="breadcrumbs" id="breadcrumbs" role="navigation"><ul><li class="home"><a href="/"><span class="ellipsible">      <i class="icon-home"
+         title="My Dashboard">
+        <span class="screenreader-only">My Dashboard</span>
+      </i>
+</span></a></li><li><a href="/courses/10415"><span class="ellipsible">ARCHA4528_001_2016_2</span></a></li><li><a href="/courses/10415/submit_grades_to_ssol"><span class="ellipsible">Submit Grades To SSOL</span></a></li></ul></nav>
+          </div>
+        </div>
+    <div class="ic-app-main-layout-horizontal">
+          <div id="left-side" class="list-view ic-app-course-menu">
+              <span id="section-tabs-header-subtitle" class="ellipsis">Summer 2016</span>
+            <nav aria-label="context" role="navigation"><ul id="section-tabs"><li class="section"><a class="home" href="/courses/10415">Home</a></li><li class="section"><a aria-label="Course Announcements" class="announcements" href="/courses/10415/announcements">Announcements</a></li><li class="section"><a aria-label="Course Assignments" class="assignments" href="/courses/10415/assignments">Assignments</a></li><li class="section"><a aria-label="Course Grades" class="grades" href="/courses/10415/grades">Grades</a></li><li class="section"><a class="people" href="/courses/10415/users">People</a></li><li class="section section-tab-hidden"><a class="pages" href="/courses/10415/wiki">Pages<span class="screenreader-only" id="inactive_nav_link">* No content has been added</span></a></li><li class="section"><a aria-label="Course Files" class="files" href="/courses/10415/files">Files</a></li><li class="section"><a class="syllabus" href="/courses/10415/assignments/syllabus">Syllabus</a></li><li class="section section-tab-hidden"><a class="outcomes" href="/courses/10415/outcomes">Outcomes<span class="screenreader-only" id="inactive_nav_link">* No content has been added</span></a></li><li class="section section-tab-hidden"><a class="quizzes" href="/courses/10415/quizzes">Quizzes<span class="screenreader-only" id="inactive_nav_link">* No content has been added</span></a></li><li class="section section-tab-hidden"><a class="modules" href="/courses/10415/modules">Modules<span class="screenreader-only" id="inactive_nav_link">* No content has been added</span></a></li>
+            <li class="section"><a class="collaborations active" href="/courses/10415/collaborations">Collaborations</a></li>
+            <li class="section"><a class="context_external_tool_382" href="/courses/10415/external_tools/382">Chat</a></li>
+            <li class="section"><a class="submit_grades_to_ssol active" href="/courses/10415/submit_grades_to_ssol">Submit Grades To SSOL</a></li>
+            <li class="section"><a class="context_external_tool_3013" href="/courses/10415/external_tools/3013">Textbook</a></li><li class="section"><a class="context_external_tool_3019" href="/courses/10415/external_tools/3019">Attendance</a></li><li class="section section-tab-hidden"><a aria-label="Course Discussions" class="discussions" href="/courses/10415/discussion_topics">Discussions<span class="screenreader-only" id="inactive_nav_link">* No content has been added</span></a></li><li class="section section-tab-hidden"><a class="conferences" href="/courses/10415/conferences">Conferences<span class="screenreader-only" id="inactive_nav_link">* No content has been added</span></a></li><li class="section"><a aria-label="Course Settings" class="settings" href="/courses/10415/settings">Settings</a></li></ul></nav>
+        </div>
+        <div id="main" class="ic-app-main-and-right-side">
+          <div id="not_right_side" class="ic-app-main-content">
+            <div id="content-wrapper" class="ic-app-main-content__primary">
+                
+                
+              <div id="content" role="main" >
+
+
+
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Start Bootstrap</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                    <li>
+                        <a href="#">Services</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Portfolio Item Row -->
+        <div class="row">
+
+            <!-- <div class="col-md-8">
+                <img class="img-responsive" src="http://placehold.it/750x500" alt="">
+            </div> -->
+
+            <div class="col-md-8">
+                <h3>Submit Grades To SSOL</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
+                <h3>Project Details</h3>
+                <ul>
+                    <li>Click the “Submit Grades To SSOL” button below,</li>
+                    <li>Log in to SSOL,</li>
+                    <li>Click the “Upload Grades” button,</li>
+                    <li>Click the “Upload from CourseWorks” option,</li>
+                    <li> If SSOL displays an error message indicating that a grade cannot be assigned to a student, correct the grade and overwrite,</li>
+                    <li> Save, review and (when you are sure the grades are accurate) submit them to SSOL.</li>
+                </ul>
+                <p>Please Note: “draft” versions of final grades can be uploaded and saved in SSOL from CourseWorks as many times as you wish. However, you may only submit final grades via SSOL once. For subsequent changes after final submission, contact the registrar’s office (at ssol@columbia.edu). If you have questions about CourseWorks’ Gradebook function contact newcourseworks@columbia.edu.</p>
+
+                <div class="button-container">
+                <a class="btn button-default-action" href="www.google.com" onclick="window.open('https://ssol.columbia.edu/?tran[1]_tran_name=srwgi'); return false;;if(typeof window.clearFormHiddenParams_gbForm!='undefined'){clearFormHiddenParams_gbForm('gbForm');}" >Submit Grades To SSOL <span class="glyphicon glyphicon-chevron-right"></span></a>
+
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+
+        <hr>
+
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
+
+
