@@ -1,0 +1,30 @@
+===== submit grades =====
+Includes LTI tool on canvas and interaction with SSOL.
+
+===== Description =====
+LTI tool: 
+description:this tool includes an instruction of how to submit grades to ssol as well as a button 
+            that leade to the homepage in ssol
+name: Submit Grades To SSOL
+
+Interaction With SSOL:
+1. generate session id 
+Instructor passes username and password in query string from a POST request to the python script.
+url example:
+http://192.168.33.10:5000/login?username=&password=
+
+Server authenticates the username and password, if valid, uses a library 'flask_login' to generate
+a session id and store it as well as current time into a table 'SessionId'. Return session id to 
+SSOL.
+
+2. access course ges the grades from canvas and extract 'student name', 'student id', 'final_grade' from it and returns back to SSOL.
+
+If session ID not in table, return 'Unauthorized', if elapsetime longer than 1 minute, return 'Time Expired'.
+
+===== Caution =====
+Right now I just mock the username and password in a dictionary, in the future these parameters may be fetched from database.
+SSOL passes session id and site id in query string to get course grades.
+url example:
+http://192.168.33.10:5000/grades?sessionId=&siteid= 
+
+If sessionId in table 'SessionId' and the time it is created is less than 1 minute from now(not expired), server fetch the 
