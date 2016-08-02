@@ -1,12 +1,20 @@
-import requests
-from flask import Flask, request, redirect, session, url_for, render_template, g
-from flask.json import jsonify
-import os,csv
+"""
+Includes LTI tool on canvas and interaction with SSOL.
+
+Example:
+    $ python test.py
+
+"""
+import os
+import csv
+import sqlite3
+import datetime
 import json
-import flask_login
 import uuid
 from collections import OrderedDict
-import sqlite3, datetime, time
+import requests
+from flask import Flask, request, redirect, url_for, render_template
+import flask_login
 
 app = Flask(__name__)
 
@@ -15,12 +23,13 @@ app.secret_key = 'Idontknowwhatthisusedfor'
 
 # create a database
 conn = sqlite3.connect('database.db')
-print ("Opened database successfully")
+print("Opened database successfully")
 # create a table
 tb_exists = "SELECT name FROM sqlite_master WHERE type='table' AND name='SessionId'"
 if not conn.execute(tb_exists).fetchone():
-    conn.execute(''' CREATE TABLE SessionId (ID varchar(36) PRIMARY KEY not null, UnixTime INTEGER not null)''')
-    print ("Table created successfully")
+    conn.execute(''' CREATE TABLE SessionId (ID varchar(36) PRIMARY KEY not null, \
+        UnixTime INTEGER not null)''')
+    print("Table created successfully")
 conn.close()
 
 
@@ -31,15 +40,20 @@ login_manager.init_app(app)
 users = {'ssolreader':{'password':'23hrp8ddvnq394tuh90'}}
 
 class User(flask_login.UserMixin):
+    '''
+    This provides default implementations for the methods that Flask-Login
+    expects user objects to have.
+    '''
     pass
 
 '''
-You will need to provide a user_loader callback. This callback is used to reload the user object
-from the user ID stored in the session. It should take the unicode ID of a user, and return the
-corresponding user object.
+You will need to provide a user_loader callback. This callback is used to reload the user object from the user ID stored in the session. It should take the unicode ID of a user, and return the corresponding user object.
 '''
 @login_manager.user_loader
 def load_user(user_id):
+    '''
+    takes the unicode ID of a user and return the corresponding user object
+    '''
     user = User()
     user.id = user_id
     return user
@@ -50,6 +64,9 @@ def unauthorized_handler():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    '''
+    Step 1: SSOL pass username and password to request a session ID
+    '''
     if request.method == 'GET':
         return 'Wrong Operation'
 
@@ -66,25 +83,27 @@ def login():
 @app.route('/protected')
 @flask_login.login_required
 def protected():
+    '''
+    Store session ID in a table SessionId
+    '''
     current_id = flask_login.current_user.id
-    print (current_id)
+    print(current_id)
     current_time = datetime.datetime.now()
     print(current_time)
-    # return redirect(url_for('grades'))
-    # conn = sqlite3.connect('database.db')
-    # print ('Open database successfully')
 
     # store current_user.id into table SessionId
-    with sqlite3.connect('database.db') as conn:
-        c = conn.cursor()
-        c.execute("INSERT INTO SessionId (ID, UnixTime) VALUES (?,?)",(current_id, current_time))
-        conn.commit()
+    with sqlite3.connect('database.db') as con:
+        c = con.cursor()
+        c.execute("INSERT INTO SessionId (ID, UnixTime) VALUES (?,?)", (current_id, current_time))
+        con.commit()
 
     return flask_login.current_user.id
 
 @app.route("/grades", methods=['POST'])
-#@flask_login.login_required
 def grades():
+    '''
+    Step 2: get grades with session ID and site ID
+    '''
     siteid = request.args.get('siteid')
     sessionId = request.args.get('sessionId')
 
@@ -97,11 +116,6 @@ def grades():
     print(ids)
     if sessionId not in ids:
         return 'Unauthorized'
-   
-    '''
-    r = requests.get('https://columbiasce.test.instructure.com/api/v1/courses/{}/enrollments'.format(siteid), \
-            headers={'Authorization': 'Bearer 1396~WRVwsmQkgBoOBzVnaImwbAmpQkPDsyx9ZHEJaJ5cdL32lsQTwSFld68NhimNTPQ4'})
-    '''
     c.execute("SELECT UnixTime FROM SessionId WHERE ID=?", (sessionId, ))
     time = c.fetchone()[0]
     print(time)
@@ -109,7 +123,7 @@ def grades():
     elapsetime = diff.total_seconds()
     print(elapsetime)
 
-    if elapsetime < 60:
+    if elapsetime < 600:
         r = requests.get('https://columbiasce.test.instructure.com/api/v1/courses/{}/enrollments'.format(siteid), \
             headers={'Authorization': \
             'Bearer 1396~WRVwsmQkgBoOBzVnaImwbAmpQkPDsyx9ZHEJaJ5cdL32lsQTwSFld68NhimNTPQ4'})
@@ -118,13 +132,11 @@ def grades():
         con.commit()
         return 'Time Expired'
 
-    data = bytes.decode(r._content)
-    xbox = json.loads(data)
-    """
-    need stores the three-column data including 'Student Name','Student ID','Final_grade'
-    """
+    xbox = bytes.decode(r._content)
+    xbox = json.loads(xbox)
+    # need stores three-column-data including 'Student Name','Student ID','Final_grade'
     need = []
-    for i in range(0,len(xbox)):
+    for i in range(0, len(xbox)):
         try:
             need.append(OrderedDict({'Student Name':xbox[i]['user']['name'], \
                     'Student ID':xbox[i]['user']['login_id'], \
@@ -133,8 +145,8 @@ def grades():
             pass
     print(need)
     keys = need[0].keys()
-    with open('info.csv','w') as output_file:
-        dict_writer = csv.DictWriter(output_file, keys, extrasaction='ignore',delimiter=',')
+    with open('info.csv', 'w') as output_file:
+        dict_writer = csv.DictWriter(output_file, keys, extrasaction='ignore', delimiter=',')
         dict_writer.writeheader()
         dict_writer.writerows(need)
     string = ''
@@ -146,6 +158,9 @@ def grades():
 
 @app.route("/submitgrades", methods=['GET', 'POST'])
 def submitgrades(name=None):
+    '''
+    Leads to LTI tool on canvas
+    '''
     return render_template('submitgrade.html', name=name)
 
 if __name__ == "__main__":
