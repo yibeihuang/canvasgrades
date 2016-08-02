@@ -8,7 +8,7 @@ Example:
 import os
 import csv
 import sqlite3
-import datetime
+import datetime, time
 import json
 import uuid
 from collections import OrderedDict
@@ -97,6 +97,14 @@ def protected():
         c.execute("INSERT INTO SessionId (ID, UnixTime) VALUES (?,?)", (current_id, current_time))
         con.commit()
 
+    # delete expired session id
+    expiretime = datetime.datetime.now() - datetime.timedelta(0, 60)
+    delete = "DELETE FROM SessionId WHERE UnixTime<?"
+    with sqlite3.connect('database.db') as con:
+        c = con.cursor()
+        c.execute(delete,[expiretime])
+        con.commit()
+    print("======================")
     return flask_login.current_user.id
 
 @app.route("/grades", methods=['POST'])
@@ -123,7 +131,7 @@ def grades():
     elapsetime = diff.total_seconds()
     print(elapsetime)
 
-    if elapsetime < 600:
+    if elapsetime < 60:
         r = requests.get('https://columbiasce.test.instructure.com/api/v1/courses/{}/enrollments'.format(siteid), \
             headers={'Authorization': \
             'Bearer 1396~WRVwsmQkgBoOBzVnaImwbAmpQkPDsyx9ZHEJaJ5cdL32lsQTwSFld68NhimNTPQ4'})
