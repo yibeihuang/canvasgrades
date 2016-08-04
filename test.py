@@ -134,7 +134,7 @@ def grades():
     if elapsetime < 60:
         r = requests.get('https://columbiasce.test.instructure.com/api/v1/courses/{}/enrollments'.format(siteid), \
             headers={'Authorization': \
-            'Bearer 1396~WRVwsmQkgBoOBzVnaImwbAmpQkPDsyx9ZHEJaJ5cdL32lsQTwSFld68NhimNTPQ4'})
+            'Some Shared Key'})
     else:
         c.execute("DELETE FROM SessionId WHERE ID=?", (sessionId,))
         con.commit()
