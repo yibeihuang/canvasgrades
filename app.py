@@ -59,7 +59,7 @@ def protected():
 @app.route("/grades", methods=["GET"])
 def grades():
     r = requests.get('https://columbiasce.test.instructure.com/api/v1/courses/5745/enrollments', \
-                headers={'Authorization': 'Bearer 1396~WRVwsmQkgBoOBzVnaImwbAmpQkPDsyx9ZHEJaJ5cdL32lsQTwSFld68NhimNTPQ4'})
+                headers={'Authorization': 'Some Shared Key'})
 
     data = bytes.decode(r._content)
     xbox = json.loads(data)
